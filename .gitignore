@@ -102,3 +102,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+#misc
+.logs
+.vscode
+.png
+.PNG
+.jpeg
+.JPEG
+.jpg
+.JPG
