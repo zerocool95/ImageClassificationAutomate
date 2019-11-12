@@ -104,11 +104,13 @@ venv.bak/
 .mypy_cache/
 
 #misc
-.logs
-.vscode
-.png
-.PNG
-.jpeg
-.JPEG
-.jpg
-.JPG
+*.logs
+*.vscode
+*.png
+*.PNG
+*.jpeg
+*.JPEG
+*.jpg
+*.JPG
+
+data/*
