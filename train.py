@@ -2,12 +2,15 @@ from config import MODEL_CONFIG, INPUT_CONFIG, TRAIN_CONFIG
 from model import Model
 from random import shuffle 
 from dataset import Dataset
+import os
+from versioning.versioning import Versioning
 
-class Trainer():
+class Trainer():	
 	def __init__(self):
 		self.image_height = INPUT_CONFIG['image_height']
 		self.image_width = INPUT_CONFIG['image_width']
 		self.dataset = Dataset()
+		self.ver = Versioning()
 		
 	def train(self):
 		#Load Data
@@ -22,8 +25,8 @@ class Trainer():
                     validation_data=val_data.repeat(), 
                     validation_steps=TRAIN_CONFIG['validation_steps'])
 
-		
-		model.save_weights('weights_epoch_30.h5')
+		hist_name = self.ver.write_history_to_disk(history)
+		model.save_weights("data/model_meta/model_weights/" + hist_name.split('_')[0] + '_weights_final.h5')
 
 	# def get_train_meta(self):
 	# 	base = TRAIN_CONFIG['train_folder']
